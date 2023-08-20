@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import axios from "axios";
 import { defaultMarker } from "./default-marker";
+import { useQuery } from "react-query";
 
 // import { useMap } from "react-leaflet/lib/hooks";
 
@@ -20,34 +21,11 @@ interface CountryData {
   recovered: number;
   deaths: number;
 }
-// function MyComponent() {
-//   const map = useMap();
-//   console.log("map center:", map.getCenter());
-//   return null;
-// }
 
-const LeafletMap: React.FC<CovidMapProps> = ({ countriesData }) => {
-  const [countryData, setCountryData] = useState<any>([]);
-
-  useEffect(() => {
-    // Make API request here
-    axios
-      .get("https://disease.sh/v3/covid-19/countries")
-      .then((response) => {
-        console.log(response);
-        setCountryData(response?.data);
-        // setCovidChart({
-        //   cases: response.data.cases,
-        //   recovered: response.data.recovered,
-        //   deaths: response.data.deaths,
-        // });
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
-  // const center = [51.505, -0.09];
+const LeafletMap = () => {
+  const { isLoading, data } = useQuery("mapData", () => {
+    return axios.get("https://disease.sh/v3/covid-19/countries");
+  });
 
   return (
     <MapContainer
@@ -60,7 +38,7 @@ const LeafletMap: React.FC<CovidMapProps> = ({ countriesData }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      {countryData?.map((country: any) => (
+      {data?.data?.map((country: any) => (
         <Marker
           key={country.country}
           icon={defaultMarker}

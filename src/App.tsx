@@ -11,7 +11,7 @@ import LineChart from "./components/Chart/line-chart";
 import LeafletMap from "./components/Chart/leaflat-map";
 import { QueryClient, QueryClientProvider } from "react-query";
 import ViewForm from "./components/Contacts/view-form";
-
+import { ReactQueryDevtools } from "react-query/devtools";
 const queryClient = new QueryClient();
 function App() {
   return (
@@ -31,6 +31,7 @@ function App() {
 
           {/* <ContactForm /> */}
         </Sidebar>
+        {/* <ReactQueryDevtools initialIsOpen={false} position="bottom-right" /> */}
       </QueryClientProvider>
     </div>
   );

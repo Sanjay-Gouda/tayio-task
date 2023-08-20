@@ -32,11 +32,13 @@ const LineChart = () => {
     deaths: [],
   });
 
-  // const { isLoading, data, error } = useQuery("lineChart", () => {
+  // const { data } = useQuery("line-chart", () => {
   //   return axios.get(
   //     "https://disease.sh/v3/covid-19/historical/all?lastdays=all"
   //   );
   // });
+
+  // console.log("data", data);
 
   useEffect(() => {
     // Make API request here
@@ -55,7 +57,7 @@ const LineChart = () => {
       });
   }, []);
 
-  const chartData = {
+  const casesData = {
     labels: Object.keys(covidChart.cases),
     datasets: [
       {
@@ -112,7 +114,7 @@ const LineChart = () => {
   return (
     <div className="w-full ">
       <div className="w-1/2">
-        <Line data={chartData} options={options} />
+        <Line data={casesData} options={options} />
       </div>
       <div className="w-full flex">
         <div className="w-1/2">
