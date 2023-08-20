@@ -1,7 +1,7 @@
 Go to the project directory
 
 ```bash
-  cd Namaste-React
+  cd contact-management
 ```
 
 Install dependencies
