@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import ContactList from "./components/Contacts/contacts-list";
+import ContactForm from "./components/Contacts/contact-form";
+import { Route, Routes } from "react-router";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import EdiContactForm from "./components/Contacts/edit-contact-form";
+import LineChart from "./components/Chart/line-chart";
+import LeafletMap from "./components/Chart/leaflat-map";
+import { QueryClient, QueryClientProvider } from "react-query";
+import ViewForm from "./components/Contacts/view-form";
 
+const queryClient = new QueryClient();
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <QueryClientProvider client={queryClient}>
+        <Sidebar>
+          <Provider store={store}>
+            <Routes>
+              <Route path="/" element={<ContactList />} />
+              <Route path="/contact-form" element={<ContactForm />} />
+              <Route path="/contact-form/:id" element={<EdiContactForm />} />
+              <Route path="/contact-view-form/:id" element={<ViewForm />} />
+              <Route path="/line-chart" element={<LineChart />} />
+              <Route path="/leaflet-map" element={<LeafletMap />} />
+            </Routes>
+          </Provider>
+
+          {/* <ContactForm /> */}
+        </Sidebar>
+      </QueryClientProvider>
     </div>
   );
 }
