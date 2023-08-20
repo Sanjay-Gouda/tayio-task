@@ -1,12 +1,7 @@
-##Contact Management App
+**Contact Management App**
 The Contact Management App is a web application built using a modern tech stack that includes React, Tailwind CSS, Redux, and Formik. This app provides a user-friendly interface for managing contacts, allowing users to efficiently add,view, update, and delete contact information while ensuring data integrity through validation using Formik.
 
-##Features
-
-Contact Management App
-The Contact Management App is a web application built using a modern tech stack that includes React, Tailwind CSS, Redux, and Formik. This app provides a user-friendly interface for managing contacts, allowing users to efficiently add, update, and delete contact information while ensuring data integrity through validation using Formik.
-
-Features
+**Features**
 Contact Management: Easily add new contacts with details such as name and status Update and delete existing contacts as needed.
 
 Form Validation: Utilize Formik to implement robust form validation, ensuring that users provide accurate and complete contact information.
