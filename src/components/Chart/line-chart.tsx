@@ -25,8 +25,14 @@ Chart.register(
   Filler,
   Legend
 );
+
+type TCovidChart = {
+  cases: [];
+  recovered: [];
+  deaths: [];
+};
 const LineChart = () => {
-  const [covidChart, setCovidChart] = useState<any>({
+  const [covidChart, setCovidChart] = useState<TCovidChart>({
     cases: [],
     recovered: [],
     deaths: [],
