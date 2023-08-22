@@ -24,10 +24,9 @@ export const contactList = createSlice({
       };
     },
 
-    updateContactList: (state, action) => {
+    updateContactList: (state, action: PayloadAction<TFormfields[]>) => {
       const payload = action.payload;
 
-      console.log(payload, "payload");
       return {
         ...state,
         contactList: payload,

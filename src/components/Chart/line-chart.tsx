@@ -51,7 +51,6 @@ const LineChart = () => {
     axios
       .get("https://disease.sh/v3/covid-19/historical/all?lastdays=all")
       .then((response) => {
-        console.log(response);
         setCovidChart({
           cases: response.data.cases,
           recovered: response.data.recovered,

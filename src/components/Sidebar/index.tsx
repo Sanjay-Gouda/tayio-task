@@ -18,7 +18,7 @@ const Sidebar = ({ children }: any) => {
         <div className="w-full h-16 flex justify-center p-4 border-b-2 border-gray-500">
           <div className="flex w-full items-center">
             <div className="w-[45%]">
-              <div className="w-40 h-11">
+              <div className="w-40 h-11 ">
                 <img
                   src={Logo}
                   alt="logo"
